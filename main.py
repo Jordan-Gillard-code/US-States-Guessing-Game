@@ -37,10 +37,7 @@ while game_is_on:
     if answer_state.title() == 'Exit':
         break
 
-states_to_learn = []
-for state in states:
-    if state not in correct_guesses:
-        states_to_learn.append(state)
+states_to_learn = [state for state in states if state not in correct_guesses]
 
 df = pandas.DataFrame(states_to_learn)
 df.to_csv('states_to_learn.csv')
